@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<head>    
+    <title>Nuestro Mundo</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/estilo.css' %}" />
+</head>
+
+{% if paises %}
+    <div class="barra-controles">
+        <!-- <div class="control">
+            <p class="icono-control"></p>
+            <p class="titulo-control">Modo lista</p>
+        </div> -->
+        <a href="{% url 'NuestroMundo:index' %}">
+            <div class="control">
+                <p class="icono-control"></p>
+                <p class="titulo-control">Nuestro Mundo</p>
+            </div>
+        </a>
+        <!-- <div class="control">
+            <p class="icono-control"></p>
+            <p class="titulo-control">Filtrar</p>
+        </div> -->
+    </div>
+	{% for pais in paises %}
+		<a href="{% url 'NuestroMundo:paises' pais.codigo %}"><div class="pais"><img src= "{% static "NuestroMundo/images/banderas/" %}{{ pais.codigo_corto }}.png" />{{ pais.nombre }}</div></a>
+	{% endfor %}
+{% else %}
+	<p class="error">No hay paises en nuestro mundo D:</p>
+{% endif %}

@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "ubuntu";
+  src: url("../font/Ubuntu-R.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "mdl2";
+  src: url("../font/segmdl2.ttf") format("truetype");
+}
+
+body{
+    background: url("../images/tierra.jpg");
+    background-attachment: fixed;
+    color: #fff;
+    font-family: "ubuntu";
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.error{
+    background: rgb(217, 34, 34);
+    background: rgba(217, 34, 34, 0.8);
+    text-align: center;
+}
+
+.barra-controles{
+    background: rgb(34, 34, 34);
+    background: rgba(34, 34, 34, 0.8);
+    border-bottom: 1px solid #fff;
+    height: 40px;
+    margin: 0;
+    width: 100%;
+}
+
+.control{
+    background: rgb(0, 153, 255);
+    background: rgba(0, 153, 255, 0.6);
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: 9px;
+    text-align: center;
+    width: 140px;
+}
+
+.icono-control, .titulo-control{
+    color: #fff;
+    display: inline-block;
+    margin: 0;
+}
+
+.icono-control{
+    font-family: "mdl2";
+}
+
+.pais{
+    background: rgb(0, 153, 255);
+    background: rgba(0, 153, 255, 0.8);
+    border-radius: 60px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+	margin-left: 10px;
+	margin-top: 10px;
+	padding: 20px;
+	text-align: center;
+    width: 250px;
+}
+
+.pais:nth-child(odd){
+    background: rgb(19, 103, 168);    
+    background: rgba(19, 103, 168, 0.8);       
+}
+
+.pais:hover{
+    background: rgb(0, 153, 255);     
+}
+
+.pais:nth-child(odd):hover{ 
+    background: rgb(19, 103, 168);  
+}
+
+.pais img{
+	margin-right: 5px;
+	position: relative;
+	top: 5px;
+    width: 25px;
+}

@@ -1,0 +1,30 @@
+.informacion{
+    background: rgb(0, 153, 255);
+    background: rgba(0, 153, 255, 0.4);
+    border: 1px solid #fff;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 20px;
+}
+
+h2{
+    text-align: center;
+}
+
+.informacion .columna{
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.titulo-seccion{
+    background: rgb(216, 216, 216);
+    background: rgba(216, 216, 216, 0.8);
+    border: 1px solid #fff;
+    border-left: 0;
+    border-right: 0;
+    color: #1367a8;
+    font-size: 24px;
+    margin: 10px 0;
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<head>
+    <title>Nuestro Mundo: {{ idioma.nombre }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/estilo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/mundo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/idioma.css' %}" />
+</head>
+<div class="barra-controles">
+    <a href="{% url 'NuestroMundo:index' %}">
+        <div class="control">
+            <p class="icono-control"></p>
+            <p class="titulo-control">Nuestro Mundo</p>
+        </div>
+    </a>
+</div>
+<p class="titulo-seccion">{{ idioma.nombre }}</p>
+
+{% if idioma_paises %}
+    {% for idioma_pais in idioma_paises %}
+        {% for pais in paises %}
+            {% if pais.codigo == idioma_pais.codigo_pais %}
+                <a href="{% url 'NuestroMundo:paises' idioma_pais.codigo_pais %}" class="pais">{{ pais.nombre }} - {{ idioma_pais.porcentaje }}%</a>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% else %}
+	<p class="error">No hay paises que hablen este idioma D:</p>
+{% endif %}

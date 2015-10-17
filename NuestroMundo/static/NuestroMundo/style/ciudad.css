@@ -1,0 +1,10 @@
+.informacion{
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
+
+h3 a{
+    font-style: italic;
+    text-decoration: underline;
+}

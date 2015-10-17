@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<head>
+    <title>Nuestro Mundo: {{ ciudad.nombre }}, {{ pais.nombre }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/estilo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/mundo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/ciudad.css' %}" />
+</head>
+<div class="barra-controles">
+    <a href="{% url 'NuestroMundo:index' %}">
+        <div class="control">
+            <p class="icono-control"></p>
+            <p class="titulo-control">Nuestro Mundo</p>
+        </div>
+    </a>
+</div>
+<p class="titulo-seccion">{{ ciudad.nombre }}</p>
+<div class="informacion">
+    <div class="columna">
+        <h3><u>Pais:</u> <a href="{% url 'NuestroMundo:paises' pais.codigo %}">{{ pais.nombre }} </a></h3>
+        {% if pais.capital == ciudad.id %}
+            <h3><u>Es la ciudad capital de su país</u></h3>
+        {% endif %}
+        <h3><u>Distrito:</u> {{ ciudad.distrito }} </h3>
+        <h3><u>Poblacion:</u> {{ ciudad.poblacion }} personas</h3>
+    </div>
+</div>

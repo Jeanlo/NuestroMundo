@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<head>
+    <title>Nuestro Mundo: {{ pais.nombre }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/estilo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/mundo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'NuestroMundo/style/pais.css' %}" />
+</head>
+<div class="barra-controles">
+    <a href="{% url 'NuestroMundo:index' %}">
+        <div class="control">
+            <p class="icono-control"></p>
+            <p class="titulo-control">Nuestro Mundo</p>
+        </div>
+    </a>
+</div>
+<img src= "{% static "NuestroMundo/images/banderas/" %}{{ pais.codigo_corto }}.png" />
+<div class="informacion">
+    <h2>{{ pais.nombre }}</h2>
+    <div class="columna">
+        <h3><u>Codigo:</u> {{ pais.codigo }}</h3>
+        <h3><u>Codigo corto:</u> {{ pais.codigo_corto }}</h3>
+        <h3><u>Region:</u> {{ pais.region }}</h3>
+        <h3><u>Continente:</u> {{ pais.continente }}</h3>
+        <h3><u>Capital:</u> {{ capital }}</h3>
+        <h3><u>Area:</u> {{ pais.area }}</h3>
+        <h3><u>Año independencia:</u> {{ pais.independencia }}</h3>
+    </div>
+    <div class="columna">
+        <h3><u>Poblacion:</u> {{ pais.poblacion }} personas</h3>
+        <h3><u>Esperanza vida:</u> {{ pais.esperanza_vida }} años</h3>
+        <h3><u>PIB:</u> {{ pais.PIB }} $</h3>
+        <h3><u>PIB anterior:</u> {{ pais.PIB_anterior }} $</h3>
+        <h3><u>Nombre local:</u> {{ pais.nombre_local }}</h3>
+        <h3><u>Tipo de gobierno:</u> {{ pais.tipo_gobierno }}</h3>
+        <h3><u>Lider de estado:</u> {{ pais.lider_estado }}</h3>
+    </div>
+</div>
+<p class="titulo-seccion">Idiomas:</p>
+{% if idiomas_pais %}
+    {% for idioma in idiomas_pais %}
+        <a href="{% url 'NuestroMundo:idiomas' idioma.idioma %}" class="idioma">{{ idioma.idioma }} - {{ idioma.porcentaje }}%</a>
+    {% endfor %}
+{% else %}
+	<p class="error">No hay idiomas en este pais D:</p>
+{% endif %}
+
+<p class="titulo-seccion">Ciudades:</p>
+{% if ciudades %}
+    {% for ciudad in ciudades %}
+        <a href="{% url 'NuestroMundo:ciudades' ciudad.id %}" class="ciudad">{{ ciudad.nombre }}</a>
+    {% endfor %}
+{% else %}
+	<p class="error">No hay ciudades en este pais D:</p>
+{% endif %}
